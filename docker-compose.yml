@@ -11,19 +11,17 @@ services:
         APP_VERSION: v0.0.0
     ports:
       - "3000:3000"
-    # environment:
-    #   RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
-    #   SELENIUM_HUB_URL: http://chrome:4444/wd/hub
-    #   SELENIUM_HEADLESS: "false"
+    environment:
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      SELENIUM_HUB_URL: http://chrome:4444/wd/hub
+      SELENIUM_HEADLESS: "false"
     volumes:
       - .:/app
 
-  # chrome:
-  #   image: selenium/standalone-chrome-debug
-  #   ports:
-  #     # - "4444:4444"
-  #     - "7900:7900"
-  #   environment:
-  #     VNC_NO_PASSWORD: 1
-  #   profiles:
-  #     - muted
+  chrome:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+    environment:
+      VNC_NO_PASSWORD: 1
