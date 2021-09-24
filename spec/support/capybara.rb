@@ -19,7 +19,7 @@ Capybara.register_driver :remote_chrome do |app|
     app,
     browser: :remote,
     url: ENV['SELENIUM_HUB_URL'],
-    capabilities: caps
+    desired_capabilities: caps
   )
 end
 
